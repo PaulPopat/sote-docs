@@ -1,0 +1,4 @@
+{
+  "static": "./_",
+  "sass": "./src/styles/index.scss"
+}
