@@ -1,0 +1,41 @@
+<grid-container>
+  <h1>SOTE Documentation</h1>
+  <h2>Introduction</h2>
+  <p>
+    SOTE (Static Only Templating Engine) is designed to provide some of the
+    benefits of modern JavaScript frameworks, such as React, VueJS, and Angular,
+    without in a simpler tool for templating rather than JavaScript
+    applications. The principles of this framework are still JavaScript first,
+    but the initial JavaScript step is only done on the server.
+  </p>
+  <p>
+    The primary use cases of this tool would be simple static websites that want
+    to be able to easily reuse code and componentise HTML and CSS, or web apps
+    that do not require much custom interaction, such as admin sections. The
+    framework also has the ability to put Sass into a style tag in the head, and
+    can be set up to easily use as an email templating server.
+  </p>
+  <h2>Setup</h2>
+  <p>
+    Run:
+    <br />
+    <code>npm install @paulpopat/sote --save</code>
+    {" "}or{" "}
+    <code>yarn add @paulpopat/sote</code>
+  </p>
+  <p>
+    Apps require a particular file structure to operate, this can be customised
+    (see project structure) for more details. The directory structure required
+    is:
+  </p>
+  <ul class="directory-structure">
+    <li>
+      src
+      <ul>
+        <li>components</li>
+        <li>pages</li>
+        <li>layout.html</li>
+      </ul>
+    </li>
+  </ul>
+</grid-container>

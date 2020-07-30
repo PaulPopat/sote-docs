@@ -1,0 +1,61 @@
+@import "../../styles/variables.scss";
+
+.side {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 0;
+  background: var(--theme-offwhite);
+  transition: width 100ms;
+  z-index: 1;
+
+  .toggle {
+    position: absolute;
+    top: 5px;
+    right: -35px;
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--grey-light);
+    border-radius: 30px;
+    background: var(--grey-white);
+    font-family: "Merriweather", serif;
+
+    transition: right 100ms, box-shadow 100ms;
+
+    &:focus {
+      outline: none;
+      box-shadow: var(--highlight-boxshadow);
+    }
+  }
+
+  &.open {
+    width: $side-width;
+    border-right: 1px solid var(--grey-light);
+
+    .toggle {
+      right: 5px;
+    }
+  }
+
+  .content {
+    width: $side-width;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .side {
+    width: $side-width;
+    border-right: 1px solid var(--grey-light);
+
+    .toggle {
+      display: none;
+    }
+  }
+}

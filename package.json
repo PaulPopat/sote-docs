@@ -16,10 +16,10 @@
   },
   "homepage": "https://github.com/PaulPopat/sote-docs#readme",
   "prettier": {
-    "printWidth": 120,
     "htmlWhitespaceSensitivity": "ignore"
   },
   "dependencies": {
-    "@paulpopat/sote": "^0.4.0"
-  }
+    "@paulpopat/sote": "^0.4.2"
+  },
+  "devDependencies": {}
 }

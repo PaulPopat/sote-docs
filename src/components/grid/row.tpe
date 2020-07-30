@@ -1,0 +1,1 @@
+<div style=":`gap: ${props.gap}`"><children></children></div>

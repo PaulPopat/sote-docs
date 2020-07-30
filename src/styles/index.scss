@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+@import "./variables.scss";
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translate(0, -1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+:root {
+  --theme-offwhite: #f3f3f3;
+  --theme-dark: #05668d;
+  --theme-mid-dark: #028090;
+  --theme-mid-light: #00a896;
+  --theme-light: #02c39a;
+
+  --grey-black: #333;
+  --grey-dark: #888;
+  --grey-light: #dfdfdf;
+  --grey-white: #fdfdfd;
+
+  --highlight-boxshadow: 0 0 5px var(--theme-light);
+}
+
+body {
+  position: relative;
+  display: block !important;
+  animation: fadein 1s ease;
+  font-family: "Merriweather", serif;
+  color: var(--grey-black);
+  margin: 0;
+  padding: 0;
+}
+
+.body-content {
+  padding: 1rem;
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .body-content {
+    margin-left: $side-width;
+  }
+}
+
+@import "./copy.scss";
