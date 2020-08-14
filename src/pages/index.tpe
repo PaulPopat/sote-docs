@@ -38,7 +38,13 @@
     </text::code::block>
     <text::paragraph>
       If you want to see an example of a larger project using this framework
-      then checkout <a href="https://github.com/PaulPopat/sote-docs">the source code for this documentation!</a>
+      then checkout
+      <a
+        href="https://github.com/PaulPopat/sote-docs"
+        target="_blank"
+        rel="noopener"
+        >the source code for this documentation!</a
+      >
     </text::paragraph>
     <text::header::three>Why?</text::header::three>
     <text::paragraph>
