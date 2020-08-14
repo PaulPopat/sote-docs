@@ -1,0 +1,8 @@
+<template>
+  <p><children></children></p>
+</template>
+<style>
+  p {
+    font-size: 1.25rem;
+  }
+</style>

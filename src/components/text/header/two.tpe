@@ -1,0 +1,10 @@
+<template>
+  <h2><children></children></h2>
+</template>
+<style>
+  h2 {
+    font-size: 1.75rem;
+    border-bottom: 1px solid var(--colours-grey-100);
+    padding-bottom: 1rem;
+  }
+</style>

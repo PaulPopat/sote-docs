@@ -1,8 +1,0 @@
-<div class="side">
-  <button type="button" class="toggle" data-target=".side" data-toggle-class="open">
-    <img src="/_/img/code.svg" width="16" height="16" />
-  </button>
-  <nav class="content">
-    <children></children>
-  </nav>
-</div>

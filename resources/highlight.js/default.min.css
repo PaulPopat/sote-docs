@@ -1,0 +1,67 @@
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: var(--colours-grey-400);
+}
+.hljs,
+.hljs-subst {
+  color: var(--colours-grey-100);
+}
+.hljs-comment {
+  color: var(--colours-grey-200);
+}
+.hljs-attribute,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta-keyword,
+.hljs-name,
+.hljs-selector-tag {
+  color: var(--colours-theme-error);
+  font-weight: 700;
+}
+.hljs-deletion,
+.hljs-number,
+.hljs-quote,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-string,
+.hljs-template-tag,
+.hljs-type {
+  color: var(--colours-theme-success);
+}
+.hljs-section,
+.hljs-title {
+  color: var(--colours-theme-warning);
+  font-weight: 700;
+}
+.hljs-link,
+.hljs-regexp,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-symbol,
+.hljs-template-variable,
+.hljs-variable {
+  color: var(--colours-theme-success);
+}
+.hljs-literal {
+  color: var(--colours-theme-primary);
+}
+.hljs-addition,
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code {
+  color: var(--colours-theme-error);
+}
+.hljs-meta {
+  color: var(--colours-theme-warning);
+}
+.hljs-meta-string {
+  color: var(--colours-theme-success);
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}

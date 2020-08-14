@@ -1,0 +1,13 @@
+<template>
+  <code><children></children></code>
+</template>
+<style>
+  code {
+    display: inline-block;
+    font-size: 1.25rem;
+    background: var(--colours-grey-100);
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    color: var(--colours-theme-primary);
+  }
+</style>

@@ -1,9 +1,0 @@
-<div
-  data-xs-span=":props['xs-span'] ? props['xs-span'] : ''"
-  data-sm-span=":props['sm-span'] ? props['sm-span'] : ''"
-  data-md-span=":props['md-span'] ? props['md-span'] : ''"
-  data-lg-span=":props['lg-span'] ? props['lg-span'] : ''"
-  data-xl-span=":props['xl-span'] ? props['xl-span'] : ''"
->
-  <children></children>
-</div>

@@ -1,0 +1,138 @@
+<template>
+  <div class="app-menu outer">
+    <div class="inner">
+      <div class="header-container">
+        <text::header::two>Contents</text::header::two>
+      </div>
+      <for
+        subject=":[{ url: '/', title: 'Welcome' }, { url: '/setup', title: 'Setup' }]"
+        key="page"
+      >
+        <a
+          href=":page.url"
+          class=":props.at === page.url ? 'active' : ''"
+        >
+          {page.title}
+        </a>
+      </for>
+    </div>
+    <button type="button" class="show-button">
+      <svg::outer width="1.5rem" height="1.5rem" view-box="0 0 24 24">
+        <svg::menu colour="var(--colours-grey-black)" stroke-width="2" />
+      </svg::outer>
+    </button>
+  </div>
+</template>
+<style>
+  .outer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100vh;
+
+    background: var(--colours-grey-100);
+    transition: width 200ms;
+  }
+
+  .outer.active {
+    width: 18.75rem;
+  }
+
+  .inner {
+    width: 18.75rem;
+    height: 100%;
+    position: relative;
+    left: -18.75rem;
+    transition: left 200ms;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .outer.active .inner {
+    left: 0;
+  }
+
+  .show-button {
+    position: absolute;
+    top: 1rem;
+    right: -3rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: right 200ms, background-color 100ms, transform 100ms;
+  }
+
+  .show-button:hover,
+  .show-button:focus {
+    outline: none;
+    background-color: var(--colours-grey-100);
+    transform: scale(1.2);
+  }
+
+  .show-button:active {
+    outline: none;
+    transform: scale(0.8);
+  }
+
+  .outer.active .show-button {
+    right: 1rem;
+  }
+
+  .outer.active .show-button:hover,
+  .outer.active .show-button:focus {
+    background-color: var(--colours-grey-white);
+  }
+
+  @media screen and (min-width: 768px) {
+    .outer {
+      width: 18.75rem;
+    }
+
+    .show-button {
+      display: none;
+    }
+
+    .inner {
+      left: 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 1rem;
+    display: block;
+    color: var(--colours-grey-300);
+    border-top: 1px solid var(--colours-grey-200);
+  }
+
+  a:last-of-type {
+    border-bottom: 1px solid var(--colours-grey-200);
+  }
+
+  a.active {
+    color: var(--colours-theme-primary);
+  }
+
+  .header-container {
+    padding: 0 1rem;
+  }
+</style>
+<script area="client">
+  document.querySelectorAll(".app-menu").forEach(function (e) {
+    e.querySelector(".show-button").addEventListener("click", function (ev) {
+      e.classList.toggle("active");
+      ev.currentTarget.blur();
+    });
+  });
+</script>

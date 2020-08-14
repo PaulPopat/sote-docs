@@ -1,0 +1,10 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width=":props.width"
+    height=":props.height"
+    viewBox=":props['view-box']"
+  >
+    <children></children>
+  </svg>
+</template>

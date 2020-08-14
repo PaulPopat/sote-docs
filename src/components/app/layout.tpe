@@ -1,0 +1,76 @@
+<template>
+  <div class="app">
+    <div class="container">
+      <children></children>
+    </div>
+    <app::menu at=":props.at" />
+  </div>
+</template>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+  .app {
+    margin-left: 0;
+
+    --colours-grey-white: #fff;
+    --colours-grey-100: #e9e9e9;
+    --colours-grey-200: #b1b1b1;
+    --colours-grey-300: #5f5f5f;
+    --colours-grey-400: #3f3f3f;
+    --colours-grey-black: #111;
+
+    --colours-theme-error: #ef476f;
+    --colours-theme-warning: #ffd166;
+    --colours-theme-success: #06d6a0;
+    --colours-theme-primary: #118ab2;
+    --colours-theme-secondary: #073b4c;
+
+    --font-family: "Roboto", sans-serif;
+    --font-family-monospace: "Roboto Mono", monospace;
+
+    background-color: var(--colours-grey-white);
+    color: var(--colours-grey-black);
+    font-family: var(--font-family);
+  }
+
+  .container {
+    box-sizing: border-box;
+    padding: 1rem;
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 576px) {
+    .container {
+      width: 540px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .container {
+      width: 458px;
+    }
+
+    .app {
+      margin-left: 18.75rem;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .container {
+      width: 660px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .container {
+      width: 840px;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .container {
+      width: 1020px;
+    }
+  }
+</style>

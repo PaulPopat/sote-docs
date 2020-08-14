@@ -1,0 +1,12 @@
+<template>
+  <pre><code class=":props.language + ' code-block'"><children></children></code></pre>
+</template>
+<style>
+  code {
+    font-family: var(--font-family-monospace);
+    border-radius: 0.25rem;
+  }
+</style>
+<script area="client">
+  hljs.initHighlightingOnLoad();
+</script>

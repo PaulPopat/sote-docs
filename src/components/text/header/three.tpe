@@ -1,0 +1,8 @@
+<template>
+  <h3><children></children></h3>
+</template>
+<style>
+  h3 {
+    font-size: 1.5rem;
+  }
+</style>
