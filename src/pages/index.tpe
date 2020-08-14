@@ -23,19 +23,23 @@
       also access everything that is available to NodeJS servers.
     </text::paragraph>
     <text::paragraph>
-      There are also some small quality of life things built in. component
-      CSS will automatically be hashed, to allow for simple clean styling.
-      Component CSS and JavaScript will also be automatically bundled in an
-      efficient fashion, so common code will be included in one file and page
-      specific resources in another.
+      There are also some small quality of life things built in. component CSS
+      will automatically be hashed, to allow for simple clean styling. Component
+      CSS and JavaScript will also be automatically bundled in an efficient
+      fashion, so common code will be included in one file and page specific
+      resources in another.
     </text::paragraph>
     <text::code::block language="html">
-{`<template>
-  <heading::one property=":props.test">
-    Hello world
-  </heading::one>
-</template>`}
+      {`<template>
+        <heading::one property=":props.test">
+          Hello world
+        </heading::one> </template
+      >`}
     </text::code::block>
+    <text::paragraph>
+      If you want to see an example of a larger project using this framework
+      then checkout <a href="https://github.com/PaulPopat/sote-docs">the source code for this documentation!</a>
+    </text::paragraph>
     <text::header::three>Why?</text::header::three>
     <text::paragraph>
       I love modern JavaScript frameworks such as React, VueJS, and Angular.
