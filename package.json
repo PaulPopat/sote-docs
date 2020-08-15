@@ -1,0 +1,23 @@
+{
+  "name": "sote-docs",
+  "version": "1.0.0",
+  "description": "This is the documentation for the SOTE frontend framework. This readme is brief because it is the readme in and of itself!",
+  "scripts": {
+    "dev": "sote dev",
+    "build": "sote build",
+    "start": "sote start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulPopat/sote-docs.git"
+  },
+  "author": "Paul Popat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulPopat/sote-docs/issues"
+  },
+  "homepage": "https://github.com/PaulPopat/sote-docs#readme",
+  "dependencies": {
+    "@paulpopat/sote": "^0.5.2"
+  }
+}
