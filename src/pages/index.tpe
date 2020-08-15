@@ -2,6 +2,15 @@
 <description>
   This is the documentation for SOTE. A modern framework for HTML templating.
 </description>
+<script area="server">
+  return {
+    template_html_example: `<template>
+  <heading::one property=":props.test">
+    Hello world
+  </heading::one>
+</template>`,
+  };
+</script>
 <template>
   <app::layout at="/">
     <text::header::one>Welcome to SOTE</text::header::one>
@@ -30,21 +39,18 @@
       resources in another.
     </text::paragraph>
     <text::code::block language="html">
-      {`<template>
-        <heading::one property=":props.test">
-          Hello world
-        </heading::one> </template
-      >`}
+      {props.template_html_example}
     </text::code::block>
     <text::paragraph>
       If you want to see an example of a larger project using this framework
-      then checkout
+      then checkout{' '}
       <a
         href="https://github.com/PaulPopat/sote-docs"
         target="_blank"
         rel="noopener"
-        >the source code for this documentation!</a
       >
+        the source code for this documentation!
+      </a>
     </text::paragraph>
     <text::header::three>Why?</text::header::three>
     <text::paragraph>

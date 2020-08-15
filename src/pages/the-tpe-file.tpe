@@ -1,0 +1,187 @@
+<title>SOTE Docs - The TPE file</title>
+<description>The Structure of a TPE file.</description>
+<script area="server">
+  // The VSCode and Prettier HTML parser cannot understand having a script
+  // closing tag in a literal from within a HTML file. So I have URL encoded it.
+  return {
+    tpe_example: decodeURIComponent(
+      "%3Ctitle%3EMy%20Website%3C%2Ftitle%3E%0A%3Cdescription%3EA%20test%20website%20to%20demonstrate%20how%20to%20setup%20a%20TPE%20file%3C%2Fdescription%3E%0A%3Cscript%20area%3D%22server%22%20method%3D%22get%22%3E%0A%20%20function%20GetData%28%29%20%7B%0A%20%20%20%20return%20%7B%20title%3A%20%22test%22%20%7D%3B%0A%20%20%7D%0A%20%20%0A%20%20return%20GetData%28%29%3B%0A%3C%2Fscript%3E%0A%3Ctemplate%3E%0A%20%20%3Cdiv%3EHello%20world%3C%2Fdiv%3E%0A%3C%2Ftemplate%3E%0A%3Cscript%20area%3D%22client%22%3E%0A%20%20console.log%28%22Hello%20world%22%29%3B%0A%3C%2Fscript%3E%0A%3Cstyle%3E%0A%20%20div%20%7B%20display%3A%20inline-block%3B%20%7D%0A%3C%2Fstyle%3E"
+    ),
+  };
+</script>
+<template>
+  <app::layout at="/the-tpe-file">
+    <text::header::one>The TPE File</text::header::one>
+    <text::code::block language="html">{props.tpe_example}</text::code::block>
+    <text::header::two>The sections</text::header::two>
+    <text::header::three>title (ignored in components)</text::header::three>
+    <text::paragraph>
+      This is the title of the page. It will be added to the header for SEO
+      purposes.
+    </text::paragraph>
+    <text::header::three
+      >description (ignored in components)</text::header::three
+    >
+    <text::paragraph>
+      The description of the page. This will be used to populate the
+      <text::code::phrase>
+        {`<meta name="description" content="PAGE_DESCRIPTION" />`}
+      </text::code::phrase>
+      tag in the header.
+    </text::paragraph>
+    <text::header::three>
+      script area="server" (ignored in components)
+    </text::header::three>
+    <text::paragraph>
+      This code will run on the server. It is run as a function and whatever is
+      returned, will be used as the props for the template.You can have one of
+      these for each method that you want to support for that page.
+    </text::paragraph>
+    <text::paragraph>
+      The function will have "query" and "body" arguments passed to it. These
+      will contain the data from the request. "query" will also contain any URL
+      parameters for the current page. Alongside these, a "context" object will
+      be provided. This object contains ["axios"] by default as an accessor to
+      the{' '}
+      <a href="https://github.com/axios/axios" target="_blank" rel="noopener">
+        axios
+      </a>
+      {' '}library. You can also add other things to the context from the
+      resources JavaScript, referenced in the config file. Finally, "req" and
+      "res" will be provided. These are used to access the original{' '}
+      <a href="https://expressjs.com/" target="_blank" rel="noopener">
+        ExpressJS
+      </a>
+      {' '}request and response objects. Useful for advanced users, particularly
+      if you want to set headers.
+    </text::paragraph>
+    <text::header::three>template</text::header::three>
+    <text::paragraph>
+      The HTML template for the page. See the "Understanding the Template"
+      section below for information on how to write this.
+    </text::paragraph>
+    <text::header::three>script area="client"</text::header::three>
+    <text::paragraph>
+      This code will be directly added to a file to be loaded onto the page (or
+      onto the page itself if configured so). You can have as many of these as
+      you want, and they will be concatenated together. No processing will be
+      done on these files at the moment, so make sure you write JavaScript for
+      the browser that you want to support.
+    </text::paragraph>
+    <text::paragraph>
+      As well as writing the script in the file, you can use a "src" attribute,
+      to load a file from disk.
+    </text::paragraph>
+    <text::header::three>style</text::header::three>
+    <text::paragraph>
+      This CSS will be added onto a file to be loaded onto the page (or onto the
+      page itself if configured so). You can have as many of these as you want,
+      and they will be concatenated together. The files will be auto prefixed,
+      for browser support. They will also have a specifier attached, making the
+      CSS component specific. This can be disabled by adding a "no-hash"
+      attribute to the tag. USE NO-HASH SPARINGLY! This is added to support
+      styling for external components and should not be used to style internal
+      code.
+    </text::paragraph>
+    <text::paragraph>
+      As well as writing the script in the file, you can use a "src" attribute,
+      to load a file from disk.
+    </text::paragraph>
+    <text::header::two>Understanding the Template</text::header::two>
+    <text::paragraph>
+      Templates are a superset of HTML. They also support text expressions,
+      expression attributes, and components:
+    </text::paragraph>
+    <ul>
+      <li>
+        Text expressions are JavaScript expressions that are resolved in the
+        text. Expressions are marked as
+        <text::code::phrase>{`{expression}`}</text::code::phrase>
+        within the HTML text. They will be resolved as full JavaScript
+        expressions, with "props" available to them. This means that they should
+        resolve to something string compatible. E.G.
+        <ul>
+          <li>
+            <text::code::phrase>{`{'test'}`}</text::code::phrase> =
+            <text::code::phrase>{'test'}</text::code::phrase>
+          </li>
+          <li>
+            <text::code::phrase>{`{1}`}</text::code::phrase> =
+            <text::code::phrase>{1}</text::code::phrase>
+          </li>
+          <li>
+            <text::code::phrase>{`{{ test: 'test' }}`}</text::code::phrase> =
+            <text::code::phrase>{{ test: 'test' }}</text::code::phrase>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Expression attributes will be resolved in a similar way as text
+        expressions. They are marked by ":" at the start of attributes. E.G.
+        <ul>
+          <li>
+            <text::code::phrase>
+              {`
+              <div class=":'test'"></div>
+              `}
+            </text::code::phrase>
+            =
+            <text::code::phrase>
+              {`
+              <div class="test"></div>
+              `}
+            </text::code::phrase>
+          </li>
+          <li>
+            <text::code::phrase>
+              {`
+              <div class=":1"></div>
+              `}
+            </text::code::phrase>
+            =
+            <text::code::phrase>
+              {`
+              <div class="1"></div>
+              `}
+            </text::code::phrase>
+          </li>
+          <li>
+            <text::code::phrase>
+              {`
+              <div class=":{ test: 'test' }"></div>
+              `}
+            </text::code::phrase>
+            =
+            <text::code::phrase>
+              {`
+              <div class="[object Object]"></div>
+              `}
+            </text::code::phrase>
+          </li>
+        </ul>
+
+        When supplying to components, complex data structures can be passed into
+        attributes to be referenced as props. When supplying to HTML elements,
+        all attributes will be resolved as strings.
+      </li>
+      <li>
+        Components are loaded as HTML tags. See "Project Structure" in "Setup"
+        for how the tag names are defined. Supply attributes to the component to
+        use them as props in the component template. Component files can also
+        have
+        <text::code::phrase>{`<children></children>`}</text::code::phrase>
+        tags. Anything supplied as children to the component will be rendered at
+        this location.
+      </li>
+    </ul>
+  </app::layout>
+</template>
+<style>
+  ul {
+    font-size: 20px;
+  }
+
+  li {
+    margin: 0.25rem 0;
+  }
+</style>

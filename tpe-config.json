@@ -4,7 +4,5 @@
   "components": ["./src/components"],
   "lang": "en",
   "port": 3000,
-  "behavior_in_tag": false,
-  "external_scripts": ["./resources/highlight.js/default.min.js"],
-  "external_css": ["./resources/highlight.js/default.min.css"]
+  "behavior_in_tag": false
 }

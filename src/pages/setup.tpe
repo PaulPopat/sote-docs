@@ -1,32 +1,156 @@
-<title>SOTE Setup</title>
+<title>SOTE Docs - Setup</title>
 <description>How to set up your SOTE environment.</description>
+<script area="server">
+  return {
+    option_json_example: `{
+  "pages": "The path to the pages directory. See project structure, below, for how pages work.",
+  "components": [
+    "A path to a components directory.",
+    {
+      "path": "A path to a components directory.",
+      "prefix": "Put at the start of the component name. Good for if you have a lot of component libraries."
+    }
+  ],
+  "static": "The path to a directory to be served as static files.",
+  "author": "Auto added as a meta tag to each page.",
+  "favicon": [{ "path": "The URL path to the file.", "size": "The size of the file for the meta tag (e.g. 64x64)." }],
+  "behavior_in_tag": true, // If true, all scripts and styles will be put in tags in the HTML, rather than linking external files.
+  "lang": "Put in the lang attribute of the HTML.",
+  "port": 3000, // The port that the application will listen on
+  "external_scripts": "A local path to JavaScript files to be prepended to the bundle.",
+  "external_css": "A local path to CSS files to be prepended to the bundle.",
+  "resources": "A local path to a JavaScript file. The module.export in this file can be used to provide utilities to the server functions."
+}`,
+  };
+</script>
 <template>
   <app::layout at="/setup">
     <text::header::one>How to setup SOTE</text::header::one>
     <text::header::two>Quick Installation</text::header::two>
     <text::paragraph>
-      The framework is hosted through NPM and can be installed with{' '}
+      The framework is hosted through NPM and can be installed with
       <text::code::phrase>npm install @paulpopat/sote -g</text::code::phrase>,
-      {' '}you can then initialise a project with{' '}
-      <text::code::phrase> sote init </text::code::phrase>.
+      you can then initialise a project with
+      <text::code::phrase>sote init</text::code::phrase>.
     </text::paragraph>
     <text::paragraph>
       You are now good to go! See "Project Structure" below to understand how
-      the generated directories and files work.
+      the generated directories and files work. If you want to do it yourself
+      you can create a
+      <text::code::phrase>tpe-config.json</text::code::phrase>
+      file and then create files and directories to match. This allows you to
+      install SOTE locally but makes set up a little harder. See "Config File"
+      below for how to configure.
     </text::paragraph>
+    <text::header::two>Config File</text::header::two>
+    <text::paragraph>
+      The config file is not actually required at all. The default values that
+      are described below will be used there is no file present. The one field
+      from below that will not exist without the config file is the static files
+      route. See below for an example of how the file is configured. All fields
+      are optional.
+    </text::paragraph>
+    <text::code::block language="json">
+      {props.option_json_example}
+    </text::code::block>
     <text::header::two>Project Structure</text::header::two>
     <text::paragraph>
       The init command will make the project structure described below. The
-      paths are all configurable in the config file. The{' '}
+      paths are all configurable in the config file. The
       <text::code::phrase>
         ./src/components
       </text::code::phrase>
-      {' '}directory can be used to make reusable components that are accessible
-      between pages. Individual page routes can be accessed through the{' '}
+      directory can be used to make reusable components that are accessible
+      between pages. Individual page routes can be accessed through the
       <text::code::phrase>
         ./src/pages
       </text::code::phrase>
-      {' '}directory.
+      directory.
+    </text::paragraph>
+    <text::paragraph>
+      Routes from the pages directory will be used to configure the server page
+      routes. Square brackets can be used to mark URL parameters See some
+      examples below:
+    </text::paragraph>
+    <ul>
+      <li>
+        <text::code::block language="plaintext">
+          ./src/pages/index.tpe = /
+        </text::code::block>
+      </li>
+      <li>
+        <text::code::block language="plaintext">
+          ./src/pages/user/profile.tpe = /user/profile
+        </text::code::block>
+      </li>
+      <li>
+        <text::code::block language="plaintext">
+          ./src/pages/[user]/index.tpe = /:user
+        </text::code::block>
+      </li>
+      <li>
+        <text::code::block language="plaintext">
+          ./src/pages/[user].tpe = /:user
+        </text::code::block>
+      </li>
+      <li>
+        <text::code::block language="plaintext">
+          ./src/pages/[index].tpe = /:index
+        </text::code::block>
+      </li>
+      <li>
+        <text::code::block language="plaintext">
+          ./src/pages/[user]/profile.tpe = /:user/profile
+        </text::code::block>
+      </li>
+    </ul>
+    <text::paragraph>
+      Components will be taken from the paths from there directory. See below
+      for some examples. The prefix from the config file will be added to the
+      start of component names, if it exists.
+    </text::paragraph>
+    <ul>
+      <li>
+        <text::code::block language="plaintext">
+          ./src/components/index.tpe = {`<index></index>`}
+        </text::code::block>
+      </li>
+      <li>
+        <text::code::block language="plaintext">
+          ./src/pages/user/profile.tpe = {`<user::profile></user::profile>`}
+        </text::code::block>
+      </li>
+      <li>
+        Prefixed with "test"
+        <text::code::block language="plaintext">
+          ./src/pages/user.tpe = {`<test::user></test::user>`}
+        </text::code::block>
+      </li>
+    </ul>
+    <text::paragraph>
+      Alongside this, <text::code::phrase>./_</text::code::phrase> is configured
+      as the static files directory. This directory will be served as a static
+      file server. If you are using an external CDN, you can just remove the
+      <text::code::phrase>"static"</text::code::phrase> field from the config
+      file and no directory will be served. Changing the path will work but will
+      still serve under <text::code::phrase>/_</text::code::phrase> on the
+      server so the autocomplete on tools like VSCode will not work.
+    </text::paragraph>
+    <text::header::two>Running the App</text::header::two>
+    <text::paragraph>
+      <text::code::phrase>sote dev</text::code::phrase> will run the app in test
+      mode. This mode will listen for changes and recompile the app but will not
+      be as fast or optimised.
+      <text::code::phrase>sote build</text::code::phrase> will build a
+      production version of the app.
+      <text::code::phrase>sote start</text::code::phrase> will then start that
+      version.
     </text::paragraph>
   </app::layout>
 </template>
+<style>
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+</style>

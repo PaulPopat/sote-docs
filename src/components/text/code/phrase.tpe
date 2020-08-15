@@ -1,5 +1,5 @@
 <template>
-  <code><children></children></code>
+  {' '}<code><children></children></code>{' '}
 </template>
 <style>
   code {

@@ -5,18 +5,19 @@
         <text::header::two>Contents</text::header::two>
       </div>
       <for
-        subject=":[{ url: '/', title: 'Welcome' }, { url: '/setup', title: 'Setup' }]"
+        subject=":[
+          { url: '/', title: 'Welcome' },
+          { url: '/setup', title: 'Setup' },
+          { url: '/the-tpe-file', title: 'The TPE File'}
+        ]"
         key="page"
       >
-        <a
-          href=":page.url"
-          class=":props.at === page.url ? 'active' : ''"
-        >
+        <a href=":page.url" class=":props.at === page.url ? 'active' : ''">
           {page.title}
         </a>
       </for>
     </div>
-    <button type="button" class="show-button">
+    <button aria-label="Show the side menu" type="button" class="show-button">
       <svg::outer width="1.5rem" height="1.5rem" view-box="0 0 24 24">
         <svg::menu colour="var(--colours-grey-black)" stroke-width="2" />
       </svg::outer>
