@@ -4,5 +4,13 @@
   "components": ["./src/components"],
   "lang": "en",
   "port": 3000,
-  "behavior_in_tag": false
+  "behavior_in_tag": false,
+  "favicon": [
+    { "path": "/_/favicon/icon-16.png", "size": "16x16" },
+    { "path": "/_/favicon/icon-32.png", "size": "32x32" },
+    { "path": "/_/favicon/icon-64.png", "size": "64x64" },
+    { "path": "/_/favicon/icon-128.png", "size": "128x128" },
+    { "path": "/_/favicon/icon-256.png", "size": "256x256" }
+  ],
+  "author": "Paul Popat"
 }

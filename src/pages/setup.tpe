@@ -19,7 +19,7 @@
   "port": 3000, // The port that the application will listen on
   "external_scripts": "A local path to JavaScript files to be prepended to the bundle.",
   "external_css": "A local path to CSS files to be prepended to the bundle.",
-  "resources": "A local path to a JavaScript file. The module.export in this file can be used to provide utilities to the server functions."
+  "resources": "A local path to a JavaScript file. The module.exports in this file can be used to provide utilities to the server functions."
 }`,
   };
 </script>

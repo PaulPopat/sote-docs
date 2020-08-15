@@ -2,7 +2,14 @@
   <div class="app-menu outer">
     <div class="inner">
       <div class="header-container">
-        <text::header::two>Contents</text::header::two>
+        <div class="header-title">
+          <svg::outer width="2rem" height="2rem" view-box="0 0 24 24">
+            <svg::icon />
+          </svg::outer>
+          <h2>
+            Contents
+          </h2>
+        </div>
       </div>
       <for
         subject=":[
@@ -127,6 +134,13 @@
 
   .header-container {
     padding: 0 1rem;
+  }
+
+  .header-title {
+    display: grid;
+    grid-template-columns: 2rem auto;
+    gap: 1rem;
+    align-items: center;
   }
 </style>
 <script area="client">
