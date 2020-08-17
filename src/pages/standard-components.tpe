@@ -1,0 +1,27 @@
+<title>SOTE Docs - Standard Components</title>
+<description>
+  SOTE has some standard components. Here is a list of them with a brief
+  description.
+</description>
+<template>
+  <app::layout at="/standard-components">
+    <text::header::one>Standard components</text::header::one>
+    <text::paragraph>
+      SOTE has some standard components. Here is a list of them with a brief
+      description.
+    </text::paragraph>
+    <ul>
+      <li>
+        <text::code::phrase>std::email::is-mso</text::code::phrase> An
+        implementation of the
+        <text::code::phrase>[if mso]</text::code::phrase> comment for
+        outlook. This should be used for emails, as comments are stripped out of
+        the generated HTML.
+      </li>
+      <li>
+        <text::code::phrase>std::email::not-mso</text::code::phrase> The
+        opposite of above. To be used in the same scenario.
+      </li>
+    </ul>
+  </app::layout>
+</template>

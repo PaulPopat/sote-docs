@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/PaulPopat/sote-docs#readme",
   "dependencies": {
-    "@paulpopat/sote": "^0.5.2"
+    "@paulpopat/sote": "^0.5.4"
   }
 }

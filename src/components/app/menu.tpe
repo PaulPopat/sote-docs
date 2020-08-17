@@ -15,7 +15,8 @@
         subject=":[
           { url: '/', title: 'Welcome' },
           { url: '/setup', title: 'Setup' },
-          { url: '/the-tpe-file', title: 'The TPE File'}
+          { url: '/the-tpe-file', title: 'The TPE File'},
+          { url: '/standard-components', title: 'Standard Components'}
         ]"
         key="page"
       >
