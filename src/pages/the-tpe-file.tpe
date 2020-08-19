@@ -72,6 +72,10 @@
       As well as writing the script in the file, you can use a "src" attribute,
       to load a file from disk.
     </text::paragraph>
+    <text::paragraph>
+      Including the babel attribute with no value will compile the script with
+      babel.
+    </text::paragraph>
     <text::header::three>style</text::header::three>
     <text::paragraph>
       This CSS will be added onto a file to be loaded onto the page (or onto the
