@@ -17,7 +17,8 @@
   "behavior_in_tag": true, // If true, all scripts and styles will be put in tags in the HTML, rather than linking external files.
   "lang": "Put in the lang attribute of the HTML.",
   "port": 3000, // The port that the application will listen on
-  "resources": "A local path to a JavaScript file. The module.exports in this file can be used to provide utilities to the server functions."
+  "resources": "A local path to a JavaScript file. The module.exports in this file can be used to provide utilities to the server functions.",
+  "email": false // If true, the HTML file will be generated with meta tags suitable for email templates
 }`,
   };
 </script>
