@@ -1,0 +1,134 @@
+<title>SOTE Docs - JavaScript Expressions</title>
+<description>How JavaScript is resolved on the server</description>
+<script area="server">
+  // The VSCode and Prettier HTML parser cannot understand having a script
+  // closing tag in a literal from within a HTML file. So I have URL encoded it.
+  return {
+    examples: {
+      top_level: decodeURIComponent(
+        "%3Cscript%20area%3D%22server%22%3E%0A%20%20return%20%7B%20text%3A%20%22Hello%20world%22%20%7D%3B%0A%3C%2Fscript%3E%0A%3Ctemplate%3E%0A%20%20%3Cdiv%3E%7Bprops.text%7D%3C%2Fdiv%3E%0A%3C%2Ftemplate%3E"
+      ),
+      top_level_result: "<div>Hello world</div>",
+    },
+  };
+</script>
+<template>
+  <app::layout at="/the-tpe-file/expressions">
+    <text::header::one>JavaScript Expressions</text::header::one>
+    <text::header::two id="server-code-blocks">
+      Server Code Blocks
+    </text::header::two>
+    <text::paragraph>
+      These blocks will be executed on the server as functions. Anything that is
+      returned from these blocks will be available as props in the template. For
+      example.
+    </text::paragraph>
+    <text::code::block language="html">
+      {props.examples.top_level}
+    </text::code::block>
+    <text::paragraph>
+      Will be rendered as
+    </text::paragraph>
+    <text::code::block language="html">
+      {props.examples.top_level_result}
+    </text::code::block>
+    <text::paragraph>
+      Blocks are executed asynchronously, so you can include await at the top
+      level. They can be on pages and components. But are given different
+      variables, accordingly.
+    </text::paragraph>
+    <text::header::three>Pages</text::header::three>
+    <ul>
+      <li>
+        <text::code::phrase>
+          query: {`{ [key: string]: string | string[] }`}
+        </text::code::phrase>
+        Any query and URL parameters from the request.
+      </li>
+      <li>
+        <text::code::phrase>
+          body: any
+        </text::code::phrase>
+        The body that is passed in the request. JSON and form data will be
+        parsed into JavaScript objects. Anything else will be supplied as a
+        string.
+      </li>
+      <li>
+        <text::code::phrase>
+          context: any
+        </text::code::phrase>
+        Added code to the context from the resources JavaScript, referenced in
+        the config file.
+      </li>
+      <li>
+        <text::code::phrase>
+          req: express.Request
+        </text::code::phrase>
+        The current request from{' '}
+        <a href="https://expressjs.com/" target="_blank" rel="noopener">
+          ExpressJS
+        </a>
+        .
+      </li>
+      <li>
+        <text::code::phrase>
+          res: express.Response
+        </text::code::phrase>
+        The current response from{' '}
+        <a href="https://expressjs.com/" target="_blank" rel="noopener">
+          ExpressJS
+        </a>
+        . This is useful, if you want to set headers and cookies.
+      </li>
+    </ul>
+    <text::header::three>Components</text::header::three>
+    <ul>
+      <li>
+        <text::code::phrase>
+          props: {`{ [key: string]: any }`}
+        </text::code::phrase>
+        Passed from the caller.
+      </li>
+      <li>
+        <text::code::phrase>
+          context: any
+        </text::code::phrase>
+        Added code to the context from the resources JavaScript, referenced in
+        the config file.
+      </li>
+    </ul>
+    <text::header::two id="template-expressions">
+      Template expressions
+    </text::header::two>
+    <text::paragraph>
+      <small>
+        Here, we look at how the JavaScript is executed. See{' '}
+        <a href="/the-tpe-file#understanding-the-template">
+          Understanding the Template
+        </a>
+        {' '}to learn how to make expressions in the template itself.
+      </small>
+    </text::paragraph>
+    <text::paragraph>
+      Expressions work in a similar way to component code blocks. They have the
+      props and the context available to them. The result of the statement is
+      used to set the attribute value.
+    </text::paragraph>
+    <text::paragraph>
+      Components can accept expressions that result in complex objects but HTML
+      elements should only take expressions that result in something that can be
+      cast to string.
+    </text::paragraph>
+    <text::paragraph>
+      Expressions are resolved asynchronously, so you can use await.
+      <text::code::block language="js">
+        {`await props.async_function()`}
+      </text::code::block>
+    </text::paragraph>
+  </app::layout>
+</template>
+<style>
+  li {
+    margin: 0.5rem 0;
+  }
+</style>

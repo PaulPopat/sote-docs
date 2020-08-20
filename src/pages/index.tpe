@@ -14,7 +14,7 @@
 <template>
   <app::layout at="/">
     <text::header::one>Welcome to SOTE</text::header::one>
-    <text::header::two>
+    <text::header::two id="welcome">
       A modern framework for HTML templating.
     </text::header::two>
     <text::header::three>What?</text::header::three>

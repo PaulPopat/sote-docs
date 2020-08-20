@@ -25,12 +25,15 @@
 <template>
   <app::layout at="/setup">
     <text::header::one>How to setup SOTE</text::header::one>
-    <text::header::two>Quick Installation</text::header::two>
+    <text::header::two id="quick-installation">
+      Quick Installation
+    </text::header::two>
     <text::paragraph>
       The framework is hosted through NPM and can be installed with
-      <text::code::phrase>npm install @paulpopat/sote -g</text::code::phrase>,
-      you can then initialise a project with
-      <text::code::phrase>sote init</text::code::phrase>.
+      <text::code::phrase>npm install @paulpopat/sote -g</text::code::phrase>
+      , you can then initialise a project with
+      <text::code::phrase>sote init</text::code::phrase>
+      .
     </text::paragraph>
     <text::paragraph>
       You are now good to go! See "Project Structure" below to understand how
@@ -41,7 +44,7 @@
       install SOTE locally but makes set up a little harder. See "Config File"
       below for how to configure.
     </text::paragraph>
-    <text::header::two>Config File</text::header::two>
+    <text::header::two id="config-file">Config File</text::header::two>
     <text::paragraph>
       The config file is not actually required at all. The default values that
       are described below will be used there is no file present. The one field
@@ -52,7 +55,9 @@
     <text::code::block language="json">
       {props.option_json_example}
     </text::code::block>
-    <text::header::two>Project Structure</text::header::two>
+    <text::header::two id="project-structure">
+      Project Structure
+    </text::header::two>
     <text::paragraph>
       The init command will make the project structure described below. The
       paths are all configurable in the config file. The
@@ -111,39 +116,48 @@
     <ul>
       <li>
         <text::code::block language="plaintext">
-          ./src/components/index.tpe = {`<index></index>`}
+          ./src/components/index.tpe = {`
+          <index></index>
+          `}
         </text::code::block>
       </li>
       <li>
         <text::code::block language="plaintext">
-          ./src/pages/user/profile.tpe = {`<user::profile></user::profile>`}
+          ./src/pages/user/profile.tpe = {`
+          <user::profile></user::profile>
+          `}
         </text::code::block>
       </li>
       <li>
         Prefixed with "test"
         <text::code::block language="plaintext">
-          ./src/pages/user.tpe = {`<test::user></test::user>`}
+          ./src/pages/user.tpe = {`
+          <test::user></test::user>
+          `}
         </text::code::block>
       </li>
     </ul>
     <text::paragraph>
-      Alongside this, <text::code::phrase>./_</text::code::phrase> is configured
-      as the static files directory. This directory will be served as a static
-      file server. If you are using an external CDN, you can just remove the
-      <text::code::phrase>"static"</text::code::phrase> field from the config
-      file and no directory will be served. Changing the path will work but will
-      still serve under <text::code::phrase>/_</text::code::phrase> on the
-      server so the autocomplete on tools like VSCode will not work.
+      Alongside this,
+      <text::code::phrase>./_</text::code::phrase>
+      is configured as the static files directory. This directory will be served
+      as a static file server. If you are using an external CDN, you can just
+      remove the
+      <text::code::phrase>"static"</text::code::phrase>
+      field from the config file and no directory will be served. Changing the
+      path will work but will still serve under
+      <text::code::phrase>/_</text::code::phrase>
+      on the server so the autocomplete on tools like VSCode will not work.
     </text::paragraph>
-    <text::header::two>Running the App</text::header::two>
+    <text::header::two id="running-the-app">Running the App</text::header::two>
     <text::paragraph>
-      <text::code::phrase>sote dev</text::code::phrase> will run the app in test
-      mode. This mode will listen for changes and recompile the app but will not
-      be as fast or optimised.
-      <text::code::phrase>sote build</text::code::phrase> will build a
-      production version of the app.
-      <text::code::phrase>sote start</text::code::phrase> will then start that
-      version.
+      <text::code::phrase>sote dev</text::code::phrase>
+      will run the app in test mode. This mode will listen for changes and
+      recompile the app but will not be as fast or optimised.
+      <text::code::phrase>sote build</text::code::phrase>
+      will build a production version of the app.
+      <text::code::phrase>sote start</text::code::phrase>
+      will then start that version.
     </text::paragraph>
   </app::layout>
 </template>

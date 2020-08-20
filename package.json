@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/PaulPopat/sote-docs#readme",
   "dependencies": {
-    "@paulpopat/sote": "^0.5.4"
+    "@paulpopat/sote": "^0.6.1"
+  },
+  "prettier": {
+    "htmlWhitespaceSensitivity": "ignore"
   }
 }

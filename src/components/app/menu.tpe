@@ -16,6 +16,7 @@
           { url: '/', title: 'Welcome' },
           { url: '/setup', title: 'Setup' },
           { url: '/the-tpe-file', title: 'The TPE File'},
+          { url: '/the-tpe-file/expressions', title: 'JavaScript Expressions'},
           { url: '/standard-components', title: 'Standard Components'}
         ]"
         key="page"
