@@ -12,5 +12,6 @@
     { "path": "/_/favicon/icon-128.png", "size": "128x128" },
     { "path": "/_/favicon/icon-256.png", "size": "256x256" }
   ],
-  "author": "Paul Popat"
+  "author": "Paul Popat",
+  "google_tracking_id": "UA-175972239-1"
 }

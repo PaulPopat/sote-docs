@@ -18,7 +18,8 @@
   "lang": "Put in the lang attribute of the HTML.",
   "port": 3000, // The port that the application will listen on
   "resources": "A local path to a JavaScript file. The module.exports in this file can be used to provide utilities to the server functions.",
-  "email": false // If true, the HTML file will be generated with meta tags suitable for email templates
+  "email": false, // If true, the HTML file will be generated with meta tags suitable for email templates
+  "google_tracking_id": "The tracking ID for Google Analytics support. Must support a Global Site Tag type snippet."
 }`,
   };
 </script>
