@@ -13,11 +13,7 @@ jobs:
     - name: Run Build
     - run: npm install
     - run: npm run build
-    - name: Deploy
-      uses: appleboy/ssh-action@master
+    - uses: actions/upload-artifact@v2
       with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: ${{ secrets.REMOTE_USER }}
-        password: ${{ secrets.REMOTE_PASSWORD }}
-        port: 22
-        script: npm install && npm run start &
+        name: app.json
+        path: .sote/app.json
