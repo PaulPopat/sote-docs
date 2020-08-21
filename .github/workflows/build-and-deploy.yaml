@@ -11,9 +11,16 @@ jobs:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
     - name: Run Build
-    - run: npm install
-    - run: npm run build
-    - uses: actions/upload-artifact@v2
+    - run: npm install && npm run build
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
       with:
-        name: app.json
-        path: .sote/app.json
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_PASSWORD }}
+        password: ${{ secrets.REMOTE_USER }}
+        port: 22
+        script: npm run start
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: app.json
+    #     path: .sote/app.json
