@@ -1,0 +1,40 @@
+<template>
+  <div class=":'alert' + (props.hide ? ' hide' : '')" id=":props.id">
+    <children></children>
+    <if check=":props.dismissible">
+      <span tabindex="0" class="dismiss">X</span>
+    </if>
+  </div>
+</template>
+<style>
+  .alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--colours-theme-error);
+    color: var(--colours-grey-white);
+    padding: 0.5rem 1rem;
+  }
+
+  .alert.hide {
+    display: none;
+  }
+
+  .alert .dismiss {
+    display: inline-block;
+    user-select: none;
+    cursor: pointer;
+    transition: transform 100ms, opacity 100ms;
+  }
+
+  .alert .dismiss:hover,
+  .alert .dismiss:focus {
+    outline: none;
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+
+  .alert .dismiss:active {
+    transform: scale(0.9);
+  }
+</style>

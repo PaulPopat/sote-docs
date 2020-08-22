@@ -1,0 +1,21 @@
+<title>SOTE Docs - Google Analytics</title>
+<description>
+  SOTE has built in Google Analytics support. Here is how it works.
+</description>
+<template>
+  <app::layout at="/google-analytics">
+    <text::header::one>Google Analytics</text::header::one>
+    <text::paragraph>
+      Google Analytics will be enabled by setting
+      <text::code::phrase>google_tracking_id</text::code::phrase>
+      in the config file.
+    </text::paragraph>
+    <text::paragraph>
+      Google Analytics is opt-in. You must call
+      <text::code::phrase>window.EnableGA()</text::code::phrase>
+      on the client machine in order to enable tracking on that browser. You can
+      check to see if tracking is already enabled by referencing
+      <text::code::phrase>window.GAEnabled</text::code::phrase>
+    </text::paragraph>
+  </app::layout>
+</template>

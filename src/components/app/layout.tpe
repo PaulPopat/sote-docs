@@ -1,6 +1,10 @@
 <template>
   <div class="app">
     <div class="container">
+      <text::alert dismissible="true" hide="true" id="cookie-notice">
+        This site would like to use cookies for Google Analytics. Please close
+        this banner to accept.
+      </text::alert>
       <children></children>
     </div>
     <app::menu at=":props.at" />
@@ -74,3 +78,13 @@
     }
   }
 </style>
+<script area="client" babel>
+  if (!GAEnabled) {
+    const notice = document.getElementById("cookie-notice");
+    notice.classList.remove("hide");
+    notice.querySelector(".dismiss").addEventListener("click", () => {
+      EnableGA();
+      notice.classList.add("hide");
+    });
+  }
+</script>
