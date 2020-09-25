@@ -25,9 +25,7 @@
     <text::paragraph>
       The description of the page. This will be used to populate the
       <text::code::phrase>
-        {`
-        <meta name="description" content="PAGE_DESCRIPTION" />
-        `}
+        {`<meta name="description" content="PAGE_DESCRIPTION" />`}
       </text::code::phrase>
       tag in the header.
     </text::paragraph>
@@ -76,6 +74,12 @@
       As well as writing the script in the file, you can use a "src" attribute,
       to load a file from disk.
     </text::paragraph>
+    <text::paragraph>
+      Styles are parsed as<text::code::phrase>.scss</text::code::phrase>files.
+      They have anything that is declared from the
+      <text::code::phrase>sass_variables</text::code::phrase> file referenced in
+      the config file.
+    </text::paragraph>
     <text::header::two id="understanding-the-template">
       Understanding the Template
     </text::header::two>
@@ -105,7 +109,7 @@
           <li>
             <text::code::phrase>{`{{ test: 'test' }}`}</text::code::phrase>
             =
-            <text::code::phrase>{{ test: 'test' }}</text::code::phrase>
+            <text::code::phrase>{`{ test: 'test' }`}</text::code::phrase>
           </li>
         </ul>
       </li>
@@ -115,41 +119,29 @@
         <ul>
           <li>
             <text::code::phrase>
-              {`
-              <div class=":'test'"></div>
-              `}
+              {`<div class=":'test'"></div>`}
             </text::code::phrase>
             =
             <text::code::phrase>
-              {`
-              <div class="test"></div>
-              `}
+              {`<div class="test"></div>`}
             </text::code::phrase>
           </li>
           <li>
             <text::code::phrase>
-              {`
-              <div class=":1"></div>
-              `}
+              {`<div class=":1"></div>`}
             </text::code::phrase>
             =
             <text::code::phrase>
-              {`
-              <div class="1"></div>
-              `}
+              {`<div class="1"></div>`}
             </text::code::phrase>
           </li>
           <li>
             <text::code::phrase>
-              {`
-              <div class=":{ test: 'test' }"></div>
-              `}
+              {`<div class=":{ test: 'test' }"></div>`}
             </text::code::phrase>
             =
             <text::code::phrase>
-              {`
-              <div class="[object Object]"></div>
-              `}
+              {`<div class="[object Object]"></div>`}
             </text::code::phrase>
           </li>
         </ul>
@@ -163,15 +155,33 @@
         for how the tag names are defined. Supply attributes to the component to
         use them as props in the component template. Component files can also
         have
-        <text::code::phrase>
-          {`
-          <children></children>
-          `}
-        </text::code::phrase>
+        <text::code::phrase>{`<children></children>`}</text::code::phrase>
         tags. Anything supplied as children to the component will be rendered at
         this location.
       </li>
     </ul>
+    <text::header::two id="raw-html">Raw HTML</text::header::two>
+    <text::paragraph>
+      By default, any template content in the page will be escaped, to render
+      on the page as if plain text. It is possible to override this with the
+      keywords of
+      <text::code::phrase>
+        &lowbar;&lowbar;&lowbar;HTML&lowbar;START&lowbar;RAW&lowbar;&lowbar;&lowbar;
+      </text::code::phrase>
+      at the start, and then
+      <text::code::phrase>
+        &lowbar;&lowbar;&lowbar;HTML&lowbar;END&lowbar;RAW&lowbar;&lowbar;&lowbar;
+      </text::code::phrase>
+      at the end.
+    </text::paragraph>
+    <text::paragraph>
+      This is resolved after the expressions, so you can also include this in the
+      base text, if you really want to.
+    </text::paragraph>
+    <text::paragraph>
+      It is recomended that you put the prefix and suffix within the functions that
+      are getting the programmatic HTML.
+    </text::paragraph>
   </app::layout>
 </template>
 <style>

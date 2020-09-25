@@ -19,7 +19,8 @@
   "port": 3000, // The port that the application will listen on
   "resources": "A local path to a JavaScript file. The module.exports in this file can be used to provide utilities to the server functions.",
   "email": false, // If true, the HTML file will be generated with meta tags suitable for email templates
-  "google_tracking_id": "The tracking ID for Google Analytics support. Must support a Global Site Tag type snippet."
+  "google_tracking_id": "The tracking ID for Google Analytics support. Must support a Global Site Tag type snippet.",
+  "sass_variables": "A local path to an .scss file. This will be included in every style tag across the site. Do not put any styles in here."
 }`,
   };
 </script>
@@ -117,24 +118,18 @@
     <ul>
       <li>
         <text::code::block language="plaintext">
-          ./src/components/index.tpe = {`
-          <index></index>
-          `}
+          ./src/components/index.tpe = {`<index></index>`}
         </text::code::block>
       </li>
       <li>
         <text::code::block language="plaintext">
-          ./src/pages/user/profile.tpe = {`
-          <user::profile></user::profile>
-          `}
+          ./src/pages/user/profile.tpe = {`<user::profile></user::profile>`}
         </text::code::block>
       </li>
       <li>
         Prefixed with "test"
         <text::code::block language="plaintext">
-          ./src/pages/user.tpe = {`
-          <test::user></test::user>
-          `}
+          ./src/pages/user.tpe = {`<test::user></test::user>`}
         </text::code::block>
       </li>
     </ul>
@@ -149,6 +144,11 @@
       path will work but will still serve under
       <text::code::phrase>/_</text::code::phrase>
       on the server so the autocomplete on tools like VSCode will not work.
+    </text::paragraph>
+    <text::header::three>Sass</text::header::three>
+    <text::paragraph>
+      Note that this file will be executed as if it were at the root of the project,
+      set all imports accordingly. This is also true for any component Sass.
     </text::paragraph>
     <text::header::two id="running-the-app">Running the App</text::header::two>
     <text::paragraph>
